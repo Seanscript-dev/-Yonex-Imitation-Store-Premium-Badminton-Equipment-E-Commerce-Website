@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yonex Official Store | Premium Badminton Equipment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yonex-blue: #003366;
+            --yonex-red: #cc0000;
+            --court-green: #2d5a3a;
+            --line-white: #f8f9fa;
+            --accent-gold: #d4af37;
+            --light-bg: #f5f9fc;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--yonex-blue), #001a33);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .court-line {
+            height: 4px;
+            background: var(--line-white);
+            margin: 1.5rem auto 0;
+            width: 80%;
+            position: relative;
+        }
+
+        .court-line:before, .court-line:after {
+            content: '';
+            position: absolute;
+            height: 4px;
+            width: 20px;
+            background: var(--yonex-red);
+            top: 0;
+        }
+
+        .court-line:before {
+            left: 25%;
+        }
+
+        .court-line:after {
+            right: 25%;
+        }
+
+        /* Categories Header */
+        .categories-header {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            text-align: center;
+            margin: 2.5rem 0;
+            color: var(--yonex-blue);
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .categories-header:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--yonex-red);
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--yonex-red);
+            text-decoration: none;
+            background: white;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            transform: scale(1.1);
+            background: var(--yonex-red);
+            color: white;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--yonex-red);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-info h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--yonex-blue);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .product-badge {
+            display: inline-block;
+            background: var(--yonex-blue);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--yonex-blue);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+        }
+
+        .footer-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .footer-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-badges span {
+            background: var(--yonex-red);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+                padding-top: 1.5rem;
+            }
+
+            .categories-header {
+                font-size: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1.5rem;
+            }
+
+            .product-image {
+                height: 250px;
+            }
+
+            .close-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="close-btn">✕</a>
+        <h1>YONEX OFFICIAL STORE</h1>
+        <p>Championship-grade badminton equipment</p>
+        <div class="court-line"></div>
+    </header>
+
+    <!-- Categories Section -->
+    <h2 class="categories-header">Our Collections</h2>
+
+    <div class="product-grid">
+        <!-- Rackets -->
+        <a href="rackets.html" class="product-card">
+            <img src="bad.jpg" alt="Yonex Rackets" class="product-image">
+            <div class="product-info">
+                <h3>Rackets</h3>
+                <p>Tournament-proven performance</p>
+                <span class="product-badge">Astrox • Nanoflare • Arcsaber</span>
+            </div>
+        </a>
+
+        <!-- Shuttlecocks -->
+        <a href="shuttlecocks.html" class="product-card">
+            <img src="shut.webp" alt="Yonex Shuttlecocks" class="product-image">
+            <div class="product-info">
+                <h3>Shuttlecocks</h3>
+                <p>Precision flight consistency</p>
+                <span class="product-badge">Aerosensa • Aeroclub</span>
+            </div>
+        </a>
+
+        <!-- Strings -->
+        <a href="strings.html" class="product-card">
+            <img src="stringsss.jpg" alt="Yonex Strings" class="product-image">
+            <div class="product-info">
+                <h3>Strings</h3>
+                <p>Engineered for control & power</p>
+                <span class="product-badge">BG65 • BG80 • Exbolt</span>
+            </div>
+        </a>
+
+        <!-- Athletes -->
+        <a href="athletes.html" class="product-card">
+            <img src="team.jpg" alt="Yonex Athletes" class="product-image">
+            <div class="product-info">
+                <h3>Pro Athletes</h3>
+                <p>Meet our championship team</p>
+                <span class="product-badge">Axelsen • Momota • Marin</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">YONEX</div>
+        <p>&copy; 2025 Yonex Co., Ltd. All rights reserved.</p>
+        <div class="footer-badges">
+            <span>OFFICIAL BWF SUPPLIER</span>
+            <span>OLYMPIC EQUIPMENT</span>
+        </div>
+    </footer>
+</body>
+</html>

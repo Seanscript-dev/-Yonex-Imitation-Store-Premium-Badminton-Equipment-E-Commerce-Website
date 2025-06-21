@@ -1,0 +1,283 @@
+/* badminton-styles.css */
+:root {
+    --yonex-blue: #003366;
+    --yonex-red: #cc0000;
+    --court-green: #2d5a3a;
+    --line-white: #f8f9fa;
+    --accent-gold: #d4af37;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation Close */
+.nav-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.close-btn {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--yonex-red);
+    text-decoration: none;
+    background: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.1);
+    background: var(--yonex-red);
+    color: white;
+}
+
+/* Header Styles */
+.yonex-header {
+    background: linear-gradient(135deg, var(--yonex-blue), #001a33);
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.yonex-header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+}
+
+.yonex-header h1 span {
+    color: var(--accent-gold);
+    font-weight: 400;
+}
+
+.court-line {
+    height: 4px;
+    background: var(--line-white);
+    margin: 1rem auto 0;
+    width: 80%;
+    position: relative;
+}
+
+.court-line:before, .court-line:after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 20px;
+    background: var(--yonex-red);
+    top: 0;
+}
+
+.court-line:before {
+    left: 25%;
+}
+
+.court-line:after {
+    right: 25%;
+}
+
+/* Shuttlecock Animation */
+.shuttlecock-animation {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: white;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    animation: shuttleFlight 8s infinite ease-in-out;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+@keyframes shuttleFlight {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(50vw, 20vh) rotate(90deg); }
+    50% { transform: translate(80vw, 10vh) rotate(180deg); }
+    75% { transform: translate(30vw, 30vh) rotate(270deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+/* Main Content */
+.court-layout {
+    background-color: white;
+    position: relative;
+    padding: 3rem 0;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.net-decoration {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        white,
+        white 20px,
+        var(--court-green) 20px,
+        var(--court-green) 40px
+    );
+}
+
+.about-text {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    position: relative;
+    padding: 2rem;
+    background: white;
+    border-left: 4px solid var(--yonex-blue);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.highlight {
+    font-weight: 600;
+    color: var(--yonex-blue);
+    position: relative;
+}
+
+.highlight:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--yonex-red);
+}
+
+.mission-section {
+    background: var(--court-green);
+    color: white;
+    padding: 2rem;
+    margin: 3rem 0;
+    border-radius: 4px;
+    position: relative;
+}
+
+.mission-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    margin-top: 0;
+    color: var(--accent-gold);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.value-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+}
+
+.value-card h3 {
+    font-family: 'Oswald', sans-serif;
+    color: var(--yonex-blue);
+    margin-bottom: 0;
+}
+
+.value-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.precision { background-image: url('precision-icon.svg'); }
+.innovation { background-image: url('innovation-icon.svg'); }
+.heritage { background-image: url('heritage-icon.svg'); }
+
+/* Footer */
+.tournament-footer {
+    background: var(--yonex-blue);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    color: var(--accent-gold);
+}
+
+.footer-badges {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.footer-badges span {
+    background: var(--yonex-red);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .yonex-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .content-container {
+        padding: 0 1rem;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}

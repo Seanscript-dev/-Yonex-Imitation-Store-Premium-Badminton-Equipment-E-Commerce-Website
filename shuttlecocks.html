@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yonex Shuttlecocks | Official Tournament Equipment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yonex-blue: #003366;
+            --yonex-red: #cc0000;
+            --court-green: #2d5a3a;
+            --line-white: #f8f9fa;
+            --accent-gold: #d4af37;
+            --light-bg: #f5f9fc;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: linear-gradient(rgba(245, 249, 252, 0.95), rgba(245, 249, 252, 0.95)), 
+                            url('badminton-court-texture.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        /* Header Styles */
+        .yonex-header {
+            background: linear-gradient(135deg, var(--yonex-blue), #001a33);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .yonex-header h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .yonex-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .court-line {
+            height: 4px;
+            background: var(--line-white);
+            margin: 1.5rem auto 0;
+            width: 60%;
+            position: relative;
+        }
+
+        .court-line:before, .court-line:after {
+            content: '';
+            position: absolute;
+            height: 4px;
+            width: 20px;
+            background: var(--yonex-red);
+            top: 0;
+        }
+
+        .court-line:before {
+            left: 25%;
+        }
+
+        .court-line:after {
+            right: 25%;
+        }
+
+        /* Brand Logo */
+        .brand-logo {
+            display: block;
+            width: 120px;
+            margin: 1rem auto;
+        }
+
+        /* Exit Button */
+        .exit-btn {
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            background: var(--yonex-red);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            text-decoration: none;
+        }
+
+        .exit-btn:hover {
+            background: #b30000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-gold);
+            color: var(--yonex-blue);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .product-image-container {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 3px solid var(--yonex-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+
+        .product-image {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--yonex-blue);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .product-series {
+            display: inline-block;
+            background: var(--yonex-blue);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--yonex-red);
+            margin: 0.5rem 0;
+        }
+
+        .product-specs {
+            margin: 1rem 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .product-specs li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .spec-icon {
+            width: 20px;
+            margin-right: 0.5rem;
+            color: var(--yonex-blue);
+        }
+
+        .buy-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--yonex-blue);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        .buy-btn:hover {
+            background: var(--yonex-red);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .tournament-footer {
+            background: var(--yonex-blue);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .footer-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-badges span {
+            background: var(--yonex-red);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .yonex-header h1 {
+                font-size: 2rem;
+                padding-top: 1.5rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+
+            .exit-btn {
+                top: 0.5rem;
+                left: 0.5rem;
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="yonex-header">
+        <a href="products.html" class="exit-btn">← Back</a>
+        <h1>YONEX SHUTTLECOCKS</h1>
+        <p>Tournament-grade performance for every level of play</p>
+        <div class="court-line"></div>
+    </header>
+
+    <!-- Brand Logo -->
+    <img src="tt.png" alt="Yonex Logo" class="brand-logo">
+
+    <!-- Product Grid -->
+    <div class="product-grid">
+        <!-- Aerosensa 50 -->
+        <div class="product-card">
+            <div class="product-badge">Premium</div>
+            <div class="product-image-container">
+                <img src="aero.webp" alt="Aerosensa 50" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Aerosensa 50</h3>
+                <span class="product-series">FEATHER SHUTTLECOCK</span>
+                <p class="product-price">₱1,800</p>
+                <ul class="product-specs">
+                    <li><span class="spec-icon">🏸</span> Speed: 77</li>
+                    <li><span class="spec-icon">🪶</span> Goose Feather</li>
+                    <li><span class="spec-icon">⭐</span> Tournament Grade</li>
+                    <li><span class="spec-icon">🎯</span> Consistent Flight</li>
+                </ul>
+                <a href="thankyou.html?product=Aerosensa 50 &price=1800&series=FEATHER SHUTTLECOCK" class="buy-btn">Buy</a>
+            </div>
+        </div>
+
+        <!-- Mavis 2000 -->
+        <div class="product-card">
+            <div class="product-badge">Durable</div>
+            <div class="product-image-container">
+                <img src="mavis.jpg" alt="Mavis 2000" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Mavis 2000</h3>
+                <span class="product-series">SYNTHETIC SHUTTLECOCK</span>
+                <p class="product-price">₱900</p>
+                <ul class="product-specs">
+                    <li><span class="spec-icon">🏸</span> Speed: 76</li>
+                    <li><span class="spec-icon">🔄</span> Nylon Skirt</li>
+                    <li><span class="spec-icon">⏳</span> Long-lasting</li>
+                    <li><span class="spec-icon">💸</span> Great Value</li>
+                </ul>
+                <a href="thankyou.html?product=Mavis 2000 &price=900&series=SYNTHETIC SHUTTLECOCK" class="buy-btn">Buy</a>
+            </div>
+        </div>
+
+        <!-- Mavis Field 2 -->
+        <div class="product-card">
+            <div class="product-badge">Training</div>
+            <div class="product-image-container">
+                <img src="speed.jpg" alt="Mavis Field 2" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Mavis Field 2</h3>
+                <span class="product-series">SYNTHETIC SHUTTLECOCK</span>
+                <p class="product-price">₱400</p>
+                <ul class="product-specs">
+                    <li><span class="spec-icon">🏸</span> Speed: 77</li>
+                    <li><span class="spec-icon">🔄</span> Nylon Skirt</li>
+                    <li><span class="spec-icon">🎓</span> Training Grade</li>
+                    <li><span class="spec-icon">💰</span> Budget Friendly</li>
+                </ul>
+                <a href="thankyou.html?product=Mavis Field 2 &price=400&series=SYNTHETIC SHUTTLECOCK" class="buy-btn">Buy</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="tournament-footer">
+        <div class="footer-content">
+            <div class="footer-logo">YONEX</div>
+            <p>&copy; 2025 Yonex Co., Ltd. All rights reserved.</p>
+            <div class="footer-badges">
+                <span>OFFICIAL BWF SUPPLIER</span>
+                <span>OLYMPIC EQUIPMENT</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

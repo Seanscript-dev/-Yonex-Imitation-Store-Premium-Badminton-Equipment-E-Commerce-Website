@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Successful | Yonex Official Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yonex-blue: #003366;
+            --yonex-red: #cc0000;
+            --court-green: #2d5a3a;
+            --line-white: #f8f9fa;
+            --accent-gold: #d4af37;
+            --light-bg: #f5f9fc;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: linear-gradient(rgba(245, 249, 252, 0.95), rgba(245, 249, 252, 0.95)), 
+                            url('badminton-court-texture.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        /* Header Styles */
+        .yonex-header {
+            background: linear-gradient(135deg, var(--yonex-blue), #001a33);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+
+        .yonex-header h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .court-line {
+            height: 4px;
+            background: var(--line-white);
+            margin: 1rem auto 0;
+            width: 60%;
+            position: relative;
+        }
+
+        .court-line:before, .court-line:after {
+            content: '';
+            position: absolute;
+            height: 4px;
+            width: 20px;
+            background: var(--yonex-red);
+            top: 0;
+        }
+
+        .court-line:before {
+            left: 25%;
+        }
+
+        .court-line:after {
+            right: 25%;
+        }
+
+        /* Receipt Container */
+        .receipt-container {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            margin: 3rem auto;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--yonex-red);
+        }
+
+        .receipt-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--yonex-blue), var(--accent-gold), var(--yonex-red));
+        }
+
+        .receipt-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .receipt-header h2 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--yonex-blue);
+            font-size: 1.8rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .receipt-header p {
+            color: #666;
+            margin: 0;
+        }
+
+        .receipt-info {
+            margin: 1.5rem 0;
+            padding: 1rem 0;
+            border-top: 2px dashed #eee;
+            border-bottom: 2px dashed #eee;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--yonex-blue);
+        }
+
+        .info-value {
+            font-weight: 700;
+        }
+
+        .order-items {
+            margin: 1.5rem 0;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .item-name {
+            font-weight: 600;
+        }
+
+        .item-price {
+            color: var(--yonex-red);
+            font-weight: 700;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--yonex-blue);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .total-label {
+            color: var(--yonex-blue);
+        }
+
+        .total-value {
+            color: var(--yonex-red);
+        }
+
+        .thank-you-message {
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 1.3rem;
+            color: var(--yonex-blue);
+            position: relative;
+        }
+
+        .thank-you-message:before, .thank-you-message:after {
+            content: '🏸';
+            margin: 0 10px;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--yonex-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #002244;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--yonex-blue);
+            border: 2px solid var(--yonex-blue);
+        }
+
+        .btn-secondary:hover {
+            background: #f0f7ff;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .tournament-footer {
+            background: var(--yonex-blue);
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
+        }
+
+        .footer-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-badges span {
+            background: var(--yonex-red);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .receipt-container {
+                width: 95%;
+                padding: 1.5rem;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="yonex-header">
+        <h1>PURCHASE CONFIRMATION</h1>
+        <div class="court-line"></div>
+    </header>
+
+    <!-- Receipt Container -->
+    <div class="receipt-container">
+        <div class="receipt-header">
+            <h2>YONEX OFFICIAL STORE</h2>
+            <p>Order Receipt</p>
+        </div>
+
+        <div class="receipt-info">
+            <div class="info-row">
+                <span class="info-label">Order Number:</span>
+                <span class="info-value">#2025-<span id="orderNumber">001</span></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Date:</span>
+                <span class="info-value" id="orderDate">April 4, 2025</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Customer:</span>
+                <span class="info-value" id="userName">Guest</span>
+            </div>
+        </div>
+
+        <!-- Update the order-items section to be dynamic -->
+<div class="order-items">
+    <h3>Order Summary</h3>
+    <div class="order-item">
+        <span class="item-name" id="productName">Exbolt 65 Badminton String</span>
+        <span class="item-price" id="productPrice">₱800</span>
+    </div>
+    <div class="order-item">
+        <span class="item-name">Stringing Service</span>
+        <span class="item-price">₱200</span>
+    </div>
+</div>
+
+<div class="total-row">
+    <span class="total-label">TOTAL:</span>
+    <span class="total-value" id="totalPrice">₱1,000</span>
+</div>
+
+        <div class="thank-you-message">
+            Thank you for your purchase!
+        </div>
+
+        <div class="action-buttons">
+            <a href="index.html" class="btn btn-primary">Continue Shopping</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="tournament-footer">
+        <div class="footer-content">
+            <div class="footer-logo">YONEX</div>
+            <p>&copy; 2025 Yonex Co., Ltd. All rights reserved.</p>
+            <div class="footer-badges">
+                <span>OFFICIAL BWF SUPPLIER</span>
+                <span>OLYMPIC EQUIPMENT</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('product') || 'Exbolt 65 Badminton String';
+    const productPrice = urlParams.get('price') || '800';
+    const productSeries = urlParams.get('series') || 'EXBOLT SERIES';
+
+    // Calculate total (product price + 200 for stringing service)
+    const totalPrice = parseInt(productPrice) + 200;
+
+    // Update the page with product info
+    document.getElementById('productName').textContent = productName;
+    document.getElementById('productPrice').textContent = `₱${productPrice}`;
+    document.getElementById('totalPrice').textContent = `₱${totalPrice}`;
+
+    // Get user data from session storage
+    const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+    
+    // Generate random order number
+    document.getElementById("orderNumber").textContent = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+    
+    // Set current date
+    const today = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById("orderDate").textContent = today.toLocaleDateString('en-US', options);
+    
+    // Display user name if logged in
+    if (currentUser) {
+        document.getElementById("userName").textContent = currentUser.name;
+    }
+</script>
+</body>
+</html>

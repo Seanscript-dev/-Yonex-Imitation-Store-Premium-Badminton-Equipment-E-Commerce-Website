@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yonex Official Store | Premium Badminton Equipment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yonex-blue: #003366;
+            --yonex-red: #cc0000;
+            --court-green: #2d5a3a;
+            --line-white: #f8f9fa;
+            --accent-gold: #d4af37;
+            --light-bg: #f5f9fc;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: linear-gradient(rgba(245, 249, 252, 0.95), rgba(245, 249, 252, 0.95)), 
+                            url('ttt.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Header Styles */
+        .yonex-header {
+            background: linear-gradient(135deg, var(--yonex-blue), #001a33);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .yonex-header h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .yonex-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .court-line {
+            height: 4px;
+            background: var(--line-white);
+            margin: 1.5rem auto 0;
+            width: 60%;
+            position: relative;
+        }
+
+        .court-line:before, .court-line:after {
+            content: '';
+            position: absolute;
+            height: 4px;
+            width: 20px;
+            background: var(--yonex-red);
+            top: 0;
+        }
+
+        .court-line:before {
+            left: 25%;
+        }
+
+        .court-line:after {
+            right: 25%;
+        }
+
+        /* Navigation */
+        .yonex-nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-link {
+            color: var(--yonex-blue);
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            margin: 0 0.5rem;
+        }
+
+        .nav-link:hover {
+            background: var(--yonex-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: var(--yonex-red);
+            color: white;
+        }
+
+        /* Brand Logo */
+        .brand-logo {
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            width: 100px;
+            z-index: 10;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            background: rgba(255,255,255,0.9);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--yonex-red);
+        }
+
+        .hero-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            color: var(--yonex-blue);
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--yonex-blue);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background: var(--yonex-red);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        .tournament-footer {
+            background: var(--yonex-blue);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .footer-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-badges span {
+            background: var(--yonex-red);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .yonex-header h1 {
+                font-size: 2rem;
+                padding-top: 1.5rem;
+            }
+
+            .brand-logo {
+                width: 80px;
+                top: 0.5rem;
+                left: 0.5rem;
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+                margin: 0.2rem;
+            }
+
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Brand Logo -->
+    <img src="dp2.svg" alt="Yonex Logo" class="brand-logo">
+
+    <!-- Header -->
+    <header class="yonex-header">
+        <h1>YONEX OFFICIAL STORE</h1>
+        <p>Tournament-proven equipment for players at every level</p>
+        <div class="court-line"></div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="yonex-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="products.html" class="nav-link">Shop</a>
+            <a href="about us.html" class="nav-link">About</a>
+            <a href="product-prices.html" class="nav-link">Product Prices</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="hero-section">
+        <div class="hero-content">
+            <h2 class="hero-title">PREMIUM BADMINTON EQUIPMENT</h2>
+            <p class="hero-subtitle">Experience the difference with Yonex - the choice of champions worldwide. Our rackets, shoes, and strings are engineered for peak performance.</p>
+            <a href="products.html" class="cta-button">Shop Now</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="tournament-footer">
+        <div class="footer-content">
+            <div class="footer-logo">YONEX</div>
+            <p>&copy; 2025 Yonex Co., Ltd. All rights reserved.</p>
+            <div class="footer-badges">
+                <span>OFFICIAL BWF SUPPLIER</span>
+                <span>OLYMPIC EQUIPMENT</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

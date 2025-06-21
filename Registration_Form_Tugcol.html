@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badminton Club - Member Portal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap');
+
+        :root {
+            --primary-blue: #003366;       /* Official BWF blue */
+            --accent-red: #D22630;        /* Badminton shuttlecock red */
+            --accent-yellow: #FFD700;      /* Court line yellow */
+            --light-gray: #F5F5F5;
+            --dark-gray: #333333;
+            --court-green: #2E8B57;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-gray);
+            background-image: url('https://www.transparenttextures.com/patterns/crisp-paper-ruffles.png');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: var(--dark-gray);
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 380px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--accent-red);
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-red));
+        }
+
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            font-size: 24px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-yellow);
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 8px;
+            color: var(--primary-blue);
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 5px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        button:hover {
+            background: #002244;
+            transform: translateY(-2px);
+        }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: var(--primary-blue);
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+            padding: 0;
+            margin: 0 0 0 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .toggle-btn:hover {
+            color: var(--accent-red);
+            text-decoration: underline;
+        }
+
+        .form-footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Badminton Court Elements */
+        .court-decoration {
+            position: absolute;
+            background-color: var(--accent-yellow);
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .court-line {
+            height: 2px;
+            width: 80%;
+            bottom: 30px;
+            left: 10%;
+        }
+
+        .net-line {
+            width: 2px;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            background: repeating-linear-gradient(
+                to bottom,
+                var(--accent-yellow),
+                var(--accent-yellow) 15px,
+                transparent 15px,
+                transparent 30px
+            );
+        }
+
+        /* Shuttlecock Icon */
+        .shuttle-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container {
+                width: 90%;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Court Decorations -->
+        <div class="court-decoration court-line"></div>
+        <div class="court-decoration net-line"></div>
+        
+        <!-- Shuttlecock Icon -->
+        <svg class="shuttle-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+            <path fill="#D22630" d="M50 10a20 20 0 1 0 0 40 20 20 0 0 0 0-40zm0 25a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+            <path fill="#FFFFFF" d="M50 50L10 90h80z"/>
+        </svg>
+
+        <!-- Registration Form -->
+        <div id="registerForm">
+            <h2>Member Registration</h2>
+            <form onsubmit="registerUser(event)">
+                <label for="reg_full_name">Full Name</label>
+                <input type="text" id="reg_full_name" name="full_name" required placeholder="Your full name">
+
+                <label for="reg_email">Email Address</label>
+                <input type="email" id="reg_email" name="email" required placeholder="your@email.com">
+
+                <label for="reg_password">Password</label>
+                <input type="password" id="reg_password" name="password" required minlength="6" placeholder="••••••">
+
+                <button type="submit">Register Account</button>
+            </form>
+            <div class="form-footer">
+                Already a member? <button class="toggle-btn" onclick="toggleForms()">Sign In</button>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm" class="hidden">
+            <h2>Member Login</h2>
+            <form onsubmit="loginUser(event)">
+                <label for="login_email">Email Address</label>
+                <input type="email" id="login_email" name="email" required placeholder="your@email.com">
+
+                <label for="login_password">Password</label>
+                <input type="password" id="login_password" name="password" required placeholder="••••••">
+
+                <button type="submit">Login</button>
+            </form>
+            <div class="form-footer">
+                New to the club? <button class="toggle-btn" onclick="toggleForms()">Register</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            document.getElementById("registerForm").classList.toggle("hidden");
+            document.getElementById("loginForm").classList.toggle("hidden");
+            // Clear forms when toggling
+            document.getElementById("reg_full_name").value = '';
+            document.getElementById("reg_email").value = '';
+            document.getElementById("reg_password").value = '';
+            document.getElementById("login_email").value = '';
+            document.getElementById("login_password").value = '';
+        }
+
+        function registerUser(event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById("reg_full_name").value.trim();
+            const email = document.getElementById("reg_email").value.trim();
+            const password = document.getElementById("reg_password").value;
+
+            if (!fullName || !email || !password) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters.");
+                return;
+            }
+
+            // Store user data (in a real app, this would be a server call)
+            const userData = {
+                fullName: fullName,
+                email: email,
+                password: password // Note: In production, never store plain text passwords
+            };
+            
+            localStorage.setItem(email, JSON.stringify(userData));
+            alert("Registration successful! Please login.");
+            toggleForms();
+        }
+
+        function loginUser(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("login_email").value.trim();
+            const password = document.getElementById("login_password").value;
+
+            const userData = JSON.parse(localStorage.getItem(email));
+
+            if (userData && userData.password === password) {
+                // Store session and redirect
+                sessionStorage.setItem("currentUser", JSON.stringify({
+                    email: userData.email,
+                    name: userData.fullName
+                }));
+                window.location.href = "index.html";
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+        }
+    </script>
+
+</body>
+</html>
