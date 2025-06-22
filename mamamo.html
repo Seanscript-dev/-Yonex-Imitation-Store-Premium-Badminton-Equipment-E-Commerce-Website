@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yonex Official Store | Premium Badminton Equipment</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
             --yonex-blue: #003366;
@@ -83,6 +84,39 @@
 
         .court-line:after {
             right: 25%;
+        }
+
+        /* User Account Controls */
+        .user-controls {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .login-btn {
+            color: white;
+            background: var(--yonex-red);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .login-btn:hover {
+            background: white;
+            color: var(--yonex-red);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
 
         /* Navigation */
@@ -247,6 +281,17 @@
                 left: 0.5rem;
             }
 
+            .user-controls {
+                right: 1rem;
+                top: 0.5rem;
+            }
+
+            .login-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+
             .nav-container {
                 flex-wrap: wrap;
             }
@@ -271,6 +316,13 @@
     <!-- Brand Logo -->
     <img src="dp2.svg" alt="Yonex Logo" class="brand-logo">
 
+    <!-- User Controls -->
+   <div class="user-controls">
+  <a href="Registration_Form_Tugcol.html" title="Sign In / Login" class="login-btn">
+    <i class="fas fa-user"></i>
+  </a>
+</div>
+
     <!-- Header -->
     <header class="yonex-header">
         <h1>YONEX OFFICIAL STORE</h1>
@@ -281,7 +333,7 @@
     <!-- Navigation -->
     <nav class="yonex-nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-link active">Home</a>
+            <a href="mamamo.html" class="nav-link active">Home</a>
             <a href="products.html" class="nav-link">Shop</a>
             <a href="about us.html" class="nav-link">About</a>
             <a href="product-prices.html" class="nav-link">Product Prices</a>
@@ -308,5 +360,17 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Add click handler for login button
+        document.querySelector('.login-btn').addEventListener('click', function() {
+            // You can replace this with your actual login page URL
+            window.location.href = 'login.html';
+            
+            // Or alternatively, show a login modal:
+            // alert('Login functionality would appear here');
+            // Uncomment the line above and comment the location.href line if you prefer a modal
+        });
+    </script>
 </body>
 </html>
