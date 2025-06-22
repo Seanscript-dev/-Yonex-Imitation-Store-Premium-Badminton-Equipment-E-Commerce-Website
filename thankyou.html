@@ -355,7 +355,7 @@
         </div>
     </footer>
 
-    <script>
+   <script>
     // Get URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const productName = urlParams.get('product') || 'Exbolt 65 Badminton String';
@@ -372,19 +372,27 @@
 
     // Get user data from session storage
     const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
-    
+
     // Generate random order number
     document.getElementById("orderNumber").textContent = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
-    
+
     // Set current date
     const today = new Date();
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById("orderDate").textContent = today.toLocaleDateString('en-US', options);
-    
-    // Display user name if logged in
-    if (currentUser) {
-        document.getElementById("userName").textContent = currentUser.name;
+
+    // Display user name or show invalid message
+    const userNameElement = document.getElementById("userName");
+    const thankYouMessage = document.querySelector(".thank-you-message");
+
+    if (currentUser && currentUser.name) {
+        userNameElement.textContent = currentUser.name;
+    } else {
+        userNameElement.textContent = "Invalid (User Not Logged In)";
+        thankYouMessage.textContent = "Invalid, Please Log-in.";
     }
 </script>
+
+
 </body>
 </html>
