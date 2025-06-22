@@ -371,54 +371,7 @@
             // alert('Login functionality would appear here');
             // Uncomment the line above and comment the location.href line if you prefer a modal
         });
-        document.addEventListener("DOMContentLoaded", function () {
-    const userControls = document.querySelector(".user-controls");
-    userControls.innerHTML = ""; // Clear existing content
-
-    const sessionData = localStorage.getItem("yonex_session");
-
-    if (sessionData) {
-      const user = JSON.parse(sessionData);
-      const name = user.fullName || "Member";
-
-      // Greet user
-      const greeting = document.createElement("span");
-      greeting.style.color = "white";
-      greeting.style.fontWeight = "600";
-      greeting.style.fontSize = "0.9rem";
-      greeting.textContent = `Hi, ${name}`;
-      userControls.appendChild(greeting);
-
-      // Add separator
-      const separator = document.createElement("span");
-      separator.style.color = "white";
-      separator.style.margin = "0 0.5rem";
-      separator.textContent = "|";
-      userControls.appendChild(separator);
-
-      // Logout link
-      const logout = document.createElement("a");
-      logout.href = "#";
-      logout.textContent = "Logout";
-      logout.style.color = "white";
-      logout.style.fontSize = "0.85rem";
-      logout.style.textDecoration = "underline";
-      logout.onclick = (e) => {
-        e.preventDefault();
-        localStorage.removeItem("yonex_session");
-        window.location.reload();
-      };
-      userControls.appendChild(logout);
-    } else {
-      // Not logged in – show login icon
-      const loginLink = document.createElement("a");
-      loginLink.href = "Registration_Form_Tugcol.html";
-      loginLink.title = "Sign In / Login";
-      loginLink.className = "login-btn";
-      loginLink.innerHTML = `<i class="fas fa-user"></i>`;
-      userControls.appendChild(loginLink);
-    }
-  });
+       
     </script>
 </body>
 </html>
